@@ -44,8 +44,6 @@ while(y>=0):
     df2=pd.DataFrame([[t,x,y,vx,vy,ax,ay]],columns=['t','x','y','vx','vy','ax','ay']);
     df=df.append(df2);
     
-    print(t,x,y,vx,vy,ax,ay);
-    
 print('t:',t);
 print('x:',x);
 
