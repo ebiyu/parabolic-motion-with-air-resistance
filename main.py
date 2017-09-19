@@ -5,13 +5,19 @@ import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 
-v0=float(input('v_0>'));
-thetadeg=float(input('θ>'))
+import sys
+args=sys.argv
+if(len(args)!=7):
+    print('Error!');
+    exit()
+
+v0=float(args[1])
+thetadeg=float(args[2])
 theta=thetadeg/360*2*3.14;
-g=float(input('g>'));
-m=float(input('m>'));
-k=float(input('k>'));
-rate=float(input('rate(/s)>'));
+g=float(args[3])
+m=float(args[4])
+k=float(args[5])
+rate=float(args[6])
 
 t=0;
 x=0;
