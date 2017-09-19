@@ -31,15 +31,16 @@ ay=0;
 df=pd.DataFrame(columns=['t','x','y','vx','vy','ax','ay']);
 
 while(y>=0):
+    vx+=ax/rate;
+    vy+=ay/rate;
+    
     ax=(-k*vx)/m;
     ay=(-m*g-k*vy)/m;
     
-    t+=1/rate;
-    
-    vx+=ax/rate;
-    vy+=ay/rate;
     x+=vx/rate;
     y+=vy/rate;
+    
+    t+=1/rate;
     
     df2=pd.DataFrame([[t,x,y,vx,vy,ax,ay]],columns=['t','x','y','vx','vy','ax','ay']);
     df=df.append(df2);
