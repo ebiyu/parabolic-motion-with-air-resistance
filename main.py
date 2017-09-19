@@ -1,6 +1,10 @@
 #coding=utf-8
 import math;
 
+import pandas as pd
+import matplotlib
+import matplotlib.pyplot as plt
+
 v0=float(input('v_0>'));
 theta=float(input('θ>'));
 g=float(input('g>'));
@@ -17,9 +21,7 @@ vy=v0*math.sin(theta);
 ax=0;
 ay=0;
 
-print('t x y vx vy ax ay');
-
-f=open('result.csv','w');
+df=pd.DataFrame(columns=['t','x','y','vx','vy','ax','ay']);
 
 while(y>=0):
     ax=(-k*vx)/m;
@@ -32,21 +34,14 @@ while(y>=0):
     x+=vx/rate;
     y+=vy/rate;
     
+    df2=pd.DataFrame([[t,x,y,vx,vy,ax,ay]],columns=['t','x','y','vx','vy','ax','ay']);
+    df=df.append(df2);
+    
     print(t,x,y,vx,vy,ax,ay);
-    f.write(str(t));
-    f.write(str(','));
-    f.write(str(x));
-    f.write(str(','));
-    f.write(str(y));
-    f.write(str(','));
-    f.write(str(vx));
-    f.write(str(','));
-    f.write(str(vy));
-    f.write(str(','));
-    f.write(str(ax));
-    f.write(str(','));
-    f.write(str(ay));
-    f.write(str('\n'));
     
 print('t:',t);
-f.close();
+
+df.to_csv('result.csv',index=False);
+
+df.plot.scatter(x='x',y='y');
+plt.show();
