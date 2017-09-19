@@ -6,7 +6,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 v0=float(input('v_0>'));
-theta=float(input('θ>'));
+thetadeg=float(input('θ>'))
+theta=thetadeg/360*2*3.14;
 g=float(input('g>'));
 m=float(input('m>'));
 k=float(input('k>'));
@@ -40,8 +41,12 @@ while(y>=0):
     print(t,x,y,vx,vy,ax,ay);
     
 print('t:',t);
+print('x:',x);
 
-df.to_csv('result.csv',index=False);
+df.to_csv('result/'+str(v0)+'-'+str(thetadeg)+'-'+str(g)+'-'+str(m)+'-'+str(k)+'-'+str(rate)+'.csv',index=False);
 
 df.plot.scatter(x='x',y='y');
+plt.axes().set_aspect('equal',adjustable='box');
+plt.xlim(xmin=0);
+plt.ylim(ymin=0);
 plt.show();
