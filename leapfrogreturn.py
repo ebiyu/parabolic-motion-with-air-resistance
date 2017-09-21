@@ -34,12 +34,13 @@ def leapfrog(v0,thetadeg,g,m,k,rate):
         df2=pd.DataFrame([[t,x,y,vx,vy,ax,ay]],columns=['t','x','y','vx','vy','ax','ay'])
         df=df.append(df2)
         
-    df.to_csv('result/'+str(v0)+'-'+str(thetadeg)+'-'+str(g)+'-'+str(m)+'-'+str(k)+'-'+str(rate)+'.csv',index=False)
+    df.to_csv('result/'+'v0'+str(v0)+'θ'+str(thetadeg)+'g'+str(g)+'m'+str(m)+'k'+str(k)+'rate'+str(rate)+'.csv',index=False)
     df.plot.scatter(x='x',y='y')
     plt.axes().set_aspect('equal',adjustable='box')
     plt.xlim(xmin=0)
     plt.ylim(ymin=0)
-    plt.savefig('images/'+str(v0)+'-'+str(thetadeg)+'-'+str(g)+'-'+str(m)+'-'+str(k)+'-'+str(rate)+'.png')
+    plt.title('v0:'+str(v0)+' ,θ:'+str(thetadeg)+' ,g:'+str(g)+' ,m:'+str(m)+' ,k:'+str(k)+' ,rate:'+str(rate))
+    plt.savefig('images/'+'v0'+str(v0)+'θ'+str(thetadeg)+'g'+str(g)+'m'+str(m)+'k'+str(k)+'rate'+str(rate)+'.png')
     plt.close()
 
     return({'t':t,'x':x,'y':y,'vx':vx,'vy':vy,'ax':ax,'ay':ay})

@@ -50,4 +50,4 @@ for i in range(rate2):
     df2=pd.DataFrame([[v0,thetadeg,g,m,k,rate,ret['t'],ret['x'],ret['y'],ret['vx'],ret['vy'],ret['ax'],ret['ay']]],columns=['v0','thetadeg','g','m','k','rate','t','x','y','vx','vy','ax','ay'])
     df=df.append(df2)
     
-df.to_csv('list/'+vartype+'('+str(minval)+'to'+str(maxval)+'by'+str(rate2)+')'+str(v0)+'-'+str(thetadeg)+'-'+str(g)+'-'+str(m)+'-'+str(k)+'-'+str(rate)+'.csv',index=False)
+df.to_csv('list/'+vartype+'('+str(minval)+'to'+str(maxval)+'by'+str(rate2)+')'+'v0'+str(v0)+'θ'+str(thetadeg)+'g'+str(g)+'m'+str(m)+'k'+str(k)+'rate'+str(rate)+'.csv',index=False)
