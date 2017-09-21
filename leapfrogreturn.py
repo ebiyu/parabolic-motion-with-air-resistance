@@ -40,5 +40,6 @@ def leapfrog(v0,thetadeg,g,m,k,rate):
     plt.xlim(xmin=0)
     plt.ylim(ymin=0)
     plt.savefig('images/'+str(v0)+'-'+str(thetadeg)+'-'+str(g)+'-'+str(m)+'-'+str(k)+'-'+str(rate)+'.png')
+    plt.close()
 
     return({'t':t,'x':x,'y':y,'vx':vx,'vy':vy,'ax':ax,'ay':ay})
