@@ -1,9 +1,7 @@
 #coding=utf-8
 import math
 
-import pandas as pd
-import matplotlib
-import matplotlib.pyplot as plt
+from leapfrogreturn import leapfrog
 
 import sys
 args=sys.argv
@@ -19,40 +17,8 @@ m=float(args[4])
 k=float(args[5])
 rate=float(args[6])
 
-t=0
-x=0
-y=0
+ret=leapfrog(v0,thetadeg,g,m,k,rate,True)
 
-vx=v0*math.cos(theta)
-vy=v0*math.sin(theta)
-ax=0
-ay=0
+print('t:',ret['t'])
+print('x:',ret['x'])
 
-df=pd.DataFrame(columns=['t','x','y','vx','vy','ax','ay'])
-
-while(y>=0):
-    vx+=ax/rate
-    vy+=ay/rate
-    
-    ax=(-k*vx)/m
-    ay=(-m*g-k*vy)/m
-    
-    x+=vx/rate
-    y+=vy/rate
-    
-    t+=1/rate
-    
-    df2=pd.DataFrame([[t,x,y,vx,vy,ax,ay]],columns=['t','x','y','vx','vy','ax','ay'])
-    df=df.append(df2)
-    
-print('t:',t)
-print('x:',x)
-
-df.to_csv('result/'+str(v0)+'-'+str(thetadeg)+'-'+str(g)+'-'+str(m)+'-'+str(k)+'-'+str(rate)+'.csv',index=False)
-
-df.plot.scatter(x='x',y='y')
-plt.axes().set_aspect('equal',adjustable='box')
-plt.xlim(xmin=0)
-plt.ylim(ymin=0)
-plt.savefig('images/'+str(v0)+'-'+str(thetadeg)+'-'+str(g)+'-'+str(m)+'-'+str(k)+'-'+str(rate)+'.png')
-plt.show()
