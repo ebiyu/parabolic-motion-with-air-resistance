@@ -1,5 +1,5 @@
 #coding=utf-8
-def leapfrog(v0,thetadeg,g,m,k,rate):
+def leapfrog(v0,thetadeg,g,m,k,rate,showgraph=False):
     import math
 
     import pandas as pd
@@ -41,6 +41,8 @@ def leapfrog(v0,thetadeg,g,m,k,rate):
     plt.ylim(ymin=0)
     plt.title('v0:'+str(v0)+' ,θ:'+str(thetadeg)+' ,g:'+str(g)+' ,m:'+str(m)+' ,k:'+str(k)+' ,rate:'+str(rate))
     plt.savefig('images/'+'v0'+str(v0)+'θ'+str(thetadeg)+'g'+str(g)+'m'+str(m)+'k'+str(k)+'rate'+str(rate)+'.png')
+    if(showgraph==True):
+        plt.show()
     plt.close()
 
     return({'t':t,'x':x,'y':y,'vx':vx,'vy':vy,'ax':ax,'ay':ay})
