@@ -7,6 +7,7 @@ import sys
 args=sys.argv
 if(len(args)!=7):
     print('Error!')
+    print('Usage: v0 thetadeg g m k rate')
     exit()
 
 v0=float(args[1])

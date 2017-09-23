@@ -11,6 +11,7 @@ import sys
 args=sys.argv
 if(len(args)!=11):
     print('Error!')
+    print('Usage: v0 thetadeg g m k rate vartype minval maxval int')
     exit()
 
 v0=float(args[1])
