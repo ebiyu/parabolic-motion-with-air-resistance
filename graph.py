@@ -4,7 +4,6 @@ import math
 import sys
 args=sys.argv
 if(len(args)!=8):
-    print('Error!')
     print('Usage: v0 thetadeg g m k rate fomula')
     exit()
 

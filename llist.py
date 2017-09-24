@@ -4,7 +4,6 @@ import math
 import sys
 args=sys.argv
 if(len(args)!=13):
-    print('Error!')
     print('Usage: v0 thetadeg g m k rate formula vartype minval maxval int foldername')
     exit()
 
