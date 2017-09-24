@@ -11,9 +11,9 @@ import os
 
 import sys
 args=sys.argv
-if(len(args)!=11):
+if(len(args)!=12):
     print('Error!')
-    print('Usage: v0 thetadeg g m k accuracy vartype minval maxval rate2')
+    print('Usage: v0 thetadeg g m k accuracy vartype minval maxval rate2 foldername')
     exit()
 
 v0=float(args[1])
@@ -27,8 +27,8 @@ vartype=args[7]
 minval=float(args[8])
 maxval=float(args[9])
 rate2=int(args[10])
+foldername=args[11]
 
-foldername=input('foldername>')
 os.mkdir(foldername)
 
 df=pd.DataFrame(columns=['v0','thetadeg','g','m','k','accuracy','x'])

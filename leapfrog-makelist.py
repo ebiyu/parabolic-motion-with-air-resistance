@@ -11,9 +11,9 @@ import os
 
 import sys
 args=sys.argv
-if(len(args)!=12):
+if(len(args)!=13):
     print('Error!')
-    print('Usage: v0 thetadeg g m k rate formula vartype minval maxval int')
+    print('Usage: v0 thetadeg g m k rate formula vartype minval maxval int foldername')
     exit()
 
 v0=float(args[1])
@@ -28,8 +28,8 @@ vartype=args[8]
 minval=float(args[9])
 maxval=float(args[10])
 rate2=int(args[11])
+foldername=args[12]
 
-foldername=input('foldername>')
 os.mkdir(foldername)
 os.mkdir(foldername+'/images')
 os.mkdir(foldername+'/data')
