@@ -16,6 +16,8 @@ def leapfrog(v0,thetadeg,g,m,k,rate,folder,showgraph=False):
     vy=v0*math.sin(theta)
     ax=0
     ay=0
+    
+    formula='kv^2'
 
     df=pd.DataFrame(columns=['t','x','y','vx','vy','ax','ay'])
 
@@ -23,8 +25,12 @@ def leapfrog(v0,thetadeg,g,m,k,rate,folder,showgraph=False):
         vx+=ax/rate
         vy+=ay/rate
         
-        ax=(-k*vx)/m
-        ay=(-m*g-k*vy)/m
+        if formula=='kv':
+            ax=(-k*vx)/m
+            ay=(-m*g-k*vy)/m
+        else:
+            ax=-k*vx*math.sqrt(vx*vx+vy*vy)/m
+            ay=-k*vy*math.sqrt(vx*vx+vy*vy)/m-g
         
         x+=vx/rate
         y+=vy/rate
