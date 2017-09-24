@@ -1,5 +1,5 @@
 #coding=utf-8
-def leapfrog(v0,thetadeg,g,m,k,rate,folder,showgraph=False):
+def leapfrog(v0,thetadeg,g,m,k,rate,formula,folder,showgraph=False):
     import math
 
     import pandas as pd
@@ -17,8 +17,6 @@ def leapfrog(v0,thetadeg,g,m,k,rate,folder,showgraph=False):
     ax=0
     ay=0
     
-    formula='kv^2'
-
     df=pd.DataFrame(columns=['t','x','y','vx','vy','ax','ay'])
 
     while(y>=0):
@@ -40,13 +38,13 @@ def leapfrog(v0,thetadeg,g,m,k,rate,folder,showgraph=False):
         df2=pd.DataFrame([[t,x,y,vx,vy,ax,ay]],columns=['t','x','y','vx','vy','ax','ay'])
         df=df.append(df2)
         
-    df.to_csv(folder+'/data/'+'v0'+str(v0)+'θ'+str(thetadeg)+'g'+str(g)+'m'+str(m)+'k'+str(k)+'rate'+str(rate)+'.csv',index=False)
+    df.to_csv(folder+'/data/'+'v0'+str(v0)+'θ'+str(thetadeg)+'g'+str(g)+'m'+str(m)+'k'+str(k)+'rate'+str(rate)+' F='+formula+'.csv',index=False)
     df.plot.scatter(x='x',y='y')
     plt.axes().set_aspect('equal',adjustable='box')
     plt.xlim(xmin=0)
     plt.ylim(ymin=0)
-    plt.title('v0:'+str(v0)+' ,θ:'+str(thetadeg)+' ,g:'+str(g)+' ,m:'+str(m)+' ,k:'+str(k)+' ,rate:'+str(rate))
-    plt.savefig(folder+'/images/'+'v0'+str(v0)+'θ'+str(thetadeg)+'g'+str(g)+'m'+str(m)+'k'+str(k)+'rate'+str(rate)+'.png')
+    plt.title('v0:'+str(v0)+' ,θ:'+str(thetadeg)+' ,g:'+str(g)+' ,m:'+str(m)+' ,k:'+str(k)+' ,rate:'+str(rate)+' F='+formula)
+    plt.savefig(folder+'/images/'+'v0'+str(v0)+'θ'+str(thetadeg)+'g'+str(g)+'m'+str(m)+'k'+str(k)+'rate'+str(rate)+' F='+formula+'.png')
     if(showgraph==True):
         plt.show()
     plt.close()

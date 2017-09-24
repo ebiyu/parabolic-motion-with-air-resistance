@@ -11,9 +11,9 @@ import os
 
 import sys
 args=sys.argv
-if(len(args)!=11):
+if(len(args)!=12):
     print('Error!')
-    print('Usage: v0 thetadeg g m k rate vartype minval maxval int')
+    print('Usage: v0 thetadeg g m k rate formula vartype minval maxval int')
     exit()
 
 v0=float(args[1])
@@ -22,11 +22,12 @@ g=float(args[3])
 m=float(args[4])
 k=float(args[5])
 rate=float(args[6])
+formula=args[7]
 
-vartype=args[7]
-minval=float(args[8])
-maxval=float(args[9])
-rate2=int(args[10])
+vartype=args[8]
+minval=float(args[9])
+maxval=float(args[10])
+rate2=int(args[11])
 
 foldername=input('foldername>')
 os.mkdir(foldername)
@@ -34,7 +35,7 @@ os.mkdir(foldername+'/images')
 os.mkdir(foldername+'/data')
 
 
-df=pd.DataFrame(columns=['v0','thetadeg','g','m','k','rate','t','x','y','vx','vy','ax','ay'])
+df=pd.DataFrame(columns=['v0','thetadeg','g','m','k','rate','formula','t','x','y','vx','vy','ax','ay'])
 
 for i in range(rate2):
     if vartype=='v0':
@@ -53,9 +54,9 @@ for i in range(rate2):
         print('Eroor!')
         exit()
     
-    ret=leapfrog(v0,thetadeg,g,m,k,rate,foldername)
+    ret=leapfrog(v0,thetadeg,g,m,k,rate,formula,foldername)
     
-    df2=pd.DataFrame([[v0,thetadeg,g,m,k,rate,ret['t'],ret['x'],ret['y'],ret['vx'],ret['vy'],ret['ax'],ret['ay']]],columns=['v0','thetadeg','g','m','k','rate','t','x','y','vx','vy','ax','ay'])
+    df2=pd.DataFrame([[v0,thetadeg,g,m,k,formula,rate,ret['t'],ret['x'],ret['y'],ret['vx'],ret['vy'],ret['ax'],ret['ay']]],columns=['v0','thetadeg','g','m','k','formula','rate','t','x','y','vx','vy','ax','ay'])
     df=df.append(df2)
     
 df.to_csv('list/'+foldername+'.csv',index=False)
