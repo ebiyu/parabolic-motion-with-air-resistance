@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 
 from newton import newton
 
+import os
+
 import sys
 args=sys.argv
 if(len(args)!=11):
@@ -26,7 +28,8 @@ minval=float(args[8])
 maxval=float(args[9])
 rate2=int(args[10])
 
-filename=input('filename>')
+foldername=input('foldername>')
+os.mkdir(foldername)
 
 df=pd.DataFrame(columns=['v0','thetadeg','g','m','k','accuracy','x'])
 
@@ -52,4 +55,4 @@ for i in range(rate2):
     df2=pd.DataFrame([[v0,thetadeg,g,m,k,accuracy,ret]],columns=['v0','thetadeg','g','m','k','accuracy','x'])
     df=df.append(df2)
     
-df.to_csv('list/'+filename+'.csv',index=False)
+df.to_csv(foldername+'/list.csv',index=False)

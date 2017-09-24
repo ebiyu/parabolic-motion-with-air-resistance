@@ -18,7 +18,7 @@ m=float(args[4])
 k=float(args[5])
 rate=float(args[6])
 
-ret=leapfrog(v0,thetadeg,g,m,k,rate,True)
+ret=leapfrog(v0,thetadeg,g,m,k,rate,'result',True)
 
 print('t:',ret['t'])
 print('x:',ret['x'])
