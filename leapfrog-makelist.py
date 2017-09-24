@@ -59,4 +59,4 @@ for i in range(rate2):
     df2=pd.DataFrame([[v0,thetadeg,g,m,k,formula,rate,ret['t'],ret['x'],ret['y'],ret['vx'],ret['vy'],ret['ax'],ret['ay']]],columns=['v0','thetadeg','g','m','k','formula','rate','t','x','y','vx','vy','ax','ay'])
     df=df.append(df2)
     
-df.to_csv('list/'+foldername+'.csv',index=False)
+df.to_csv(foldername+'/list.csv',index=False)
