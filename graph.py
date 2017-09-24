@@ -1,14 +1,14 @@
 #coding=utf-8
 import math
 
-from leapfrogreturn import leapfrog
-
 import sys
 args=sys.argv
 if(len(args)!=8):
     print('Error!')
     print('Usage: v0 thetadeg g m k rate fomula')
     exit()
+
+from leapfrogreturn import leapfrog
 
 v0=float(args[1])
 thetadeg=float(args[2])

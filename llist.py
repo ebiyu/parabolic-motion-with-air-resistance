@@ -1,6 +1,13 @@
 #coding=utf-8
 import math
 
+import sys
+args=sys.argv
+if(len(args)!=13):
+    print('Error!')
+    print('Usage: v0 thetadeg g m k rate formula vartype minval maxval int foldername')
+    exit()
+
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
@@ -8,13 +15,6 @@ import matplotlib.pyplot as plt
 from leapfrogreturn import leapfrog
 
 import os
-
-import sys
-args=sys.argv
-if(len(args)!=13):
-    print('Error!')
-    print('Usage: v0 thetadeg g m k rate formula vartype minval maxval int foldername')
-    exit()
 
 v0=float(args[1])
 thetadeg=float(args[2])

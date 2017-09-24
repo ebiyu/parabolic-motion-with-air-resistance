@@ -1,6 +1,13 @@
 #coding=utf-8
 import math
 
+import sys
+args=sys.argv
+if(len(args)!=12):
+    print('Error!')
+    print('Usage: v0 thetadeg g m k accuracy vartype minval maxval rate2 foldername')
+    exit()
+
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
@@ -8,13 +15,6 @@ import matplotlib.pyplot as plt
 from newton import newton
 
 import os
-
-import sys
-args=sys.argv
-if(len(args)!=12):
-    print('Error!')
-    print('Usage: v0 thetadeg g m k accuracy vartype minval maxval rate2 foldername')
-    exit()
 
 v0=float(args[1])
 thetadeg=float(args[2])
