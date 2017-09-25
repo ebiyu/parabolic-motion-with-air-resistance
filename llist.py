@@ -55,6 +55,8 @@ for i in range(rate2):
     
     ret=leapfrog(v0,thetadeg,g,m,k,rate,formula,foldername)
     
+    print(str(round((i+1)/rate2*100,1))+'%('+str(i)+'/'+str(rate2)+')'+vartype+'='+str(minval+(maxval-minval)/rate2*i))
+    
     df2=pd.DataFrame([[v0,thetadeg,g,m,k,rate,formula,ret['t'],ret['x'],ret['y'],ret['vx'],ret['vy'],ret['ax'],ret['ay']]],columns=['v0','thetadeg','g','m','k','rate','formula','t','x','y','vx','vy','ax','ay'])
     df=df.append(df2)
     
