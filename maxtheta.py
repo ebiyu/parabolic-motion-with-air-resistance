@@ -10,12 +10,12 @@ def maxtheta(v0,g,m,k,accuracy):
     def div(a,b):
         return((a+b)/2)
         
-    a=0
-    b=45
+    x=-1
+    for theta in range(50):
+        x2=x
+        x=f(theta)
+        
+        if(x2>x):
+            break
     
-    while(abs(a-b)>=0.1):
-        if(df(a)*df(div(a,b))<=0):
-            b=div(a,b)
-        else:
-            a=div(a,b)
-    return(a)
+    return(theta-1);
