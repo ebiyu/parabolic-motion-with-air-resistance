@@ -15,16 +15,26 @@ def bisection(v0,thetadeg,g,m,k,accuracy):
     def df(x):
         return(A-B*C/(1-C*x))
     
-    ratio=1
+    ratio=0
     def div(a,b):
         return((a+b*ratio)/(ratio+1))
         
-    a=(A-B*C)/(C*A)
-    b=m/g*v0*math.cos(theta)
+    flag=True
     
-    while(abs(a-b)>=accuracy):
-        if(f(a)*f(div(a,b))<0):
-            b=div(a,b)
-        else:
-            a=div(a,b)
+    while flag:
+        ratio+=1
+        flag=False
+        a=(A-B*C)/(C*A)
+        b=m/g*v0*math.cos(theta)
+        
+        while(abs(a-b)>=accuracy):
+            if(f(a)*f(div(a,b))<=0):
+                b=div(a,b)
+            else:
+                a=div(a,b)
+            if(1-C*div(a,b)<=0):
+                Flag=True
+                break
+    if(ratio!=1):
+        print(ratio)
     return(a)
